@@ -82,6 +82,11 @@ public class HuffProcessor {
 			pq.add(t);
 		}
 		HuffNode root = pq.remove();
+		
+		if(myDebugLevel >= DEBUG_HIGH) {
+			System.out.printf("pq created with %d nodes\n", pq.size());
+		}
+		
 		return root;
 	}
 	
@@ -97,8 +102,8 @@ public class HuffProcessor {
 			return;
 		}
 		else {
-			codingHelper(root.myLeft,path + "0", encodings);
-			codingHelper(root.myRight,path + "1", encodings);
+			codingHelper(root.myLeft, path + "0", encodings);
+			codingHelper(root.myRight, path + "1", encodings);
 		}
 	}
 	
@@ -166,7 +171,7 @@ public class HuffProcessor {
 			
 	}
 
-	public void readCompressedBits(HuffNode root, BitInputStream input, BitOutputStream out) {
+	private void readCompressedBits(HuffNode root, BitInputStream input, BitOutputStream out) {
 		HuffNode current = root; 
 		   while (true) {
 		       int bits = input.readBits(1);
