@@ -180,7 +180,7 @@ public class HuffProcessor {
 			
 	}
 
-	public void readCompressedBits(HuffNode root, BitInputStream input, BitInputStream out) {
+	public void readCompressedBits(HuffNode root, BitInputStream input, BitOutputStream out) {
 		HuffNode current = root; 
 		   while (true) {
 		       int bits = input.readBits(1);
